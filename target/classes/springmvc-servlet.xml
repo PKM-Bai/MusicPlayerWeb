@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           "
+>
+
+    <!-- 只扫描controller层注解-->
+    <context:component-scan base-package="com.music.controller">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 2. 定义控制器的url解析器和处理器等内容  注解驱动 -->
+    <mvc:annotation-driven />
+    <!--静态资源默认servlet配置-->
+    <mvc:default-servlet-handler/>
+
+    <!-- 配置外部资源访问路径 js文件 -->
+    <mvc:resources location="/resources/" mapping="/resources/**/" />
+
+    <!-- 3. 配置视图解析器 -->
+    <bean id="resourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 3.1 配置视图解析器的前缀 -->
+        <property name="prefix" value="/jsp/" />
+        <!-- 3.2 配置视图解析器的后缀 -->
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+</beans>
+

@@ -1,0 +1,314 @@
+/*播放列表菜单*/
+.menu-wrap {
+    position: absolute;
+    width: 18%;
+    height: 848px;
+    z-index: 1001;
+    background: #373a47;
+    padding: 0.5em 0 0;
+    font-size: 1.15em;
+    -webkit-transform: translate3d(-320px,0,0);
+    transform: translate3d(-400px,0,0);
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+.menu-wrap a {
+    color: #b8b7ad;
+}
+.menu-wrap a:hover,
+.menu-wrap a:focus {
+    color: #c94e50;
+}
+/* 歌曲list */
+.menu,
+.song-list {
+    height: 100%;
+    /*float: none;*/
+    padding: 5px;
+}
+.song-list {
+
+}
+.list-title {
+    width: 100%;
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+}
+.list-title div{
+    float: left;
+}
+.song-slot, .song-slot a, .song-slot div{
+    font-size: 16px;
+}
+.song-slot {
+    width: 100%;
+    height: 22px;
+    margin-bottom: 10px;
+}
+.song-slot:hover {
+    background-color: rgba(255, 255, 255, 0.11);
+}
+.song-code {
+    width: 15%;
+    height: 28px;
+}
+.song-name {
+    width: 35%;
+    height: 28px;
+    overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+}
+.singer-name {
+    width: 30%;
+    height: 28px;
+    overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+}
+.duration {
+    width: 20%;
+    height: 28px;
+    overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+}
+.song-list {
+    -webkit-transform: translate3d(0,100%,0);
+    transform: translate3d(0,100%,0);
+}
+.song-listPlayStus div{
+    color: #ff2c57;
+}
+.song-list div {
+    float: left;
+}
+.song-list a {
+    /*display: block;*/
+    -webkit-transform: translate3d(0,500px,0);
+    transform: translate3d(0,500px,0);
+}
+
+.song-list,
+.song-list a {
+    -webkit-transition: -webkit-transform 0s 0.4s;
+    transition: transform 0s 0.4s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+/* 打开列表按钮 */
+.menu-button {
+    position: fixed;
+    z-index: 1000;
+    margin: 1em;
+    padding: 0;
+    width: 2.1em;
+    height: 2em;
+    border: none;
+    text-indent: 2.5em;
+    font-size: 1.5em;
+    color: transparent;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.menu-button::before {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    bottom: 0.5em;
+    left: 0.5em;
+    background: linear-gradient(#373a47 20%, transparent 20%, transparent 40%, #373a47 40%, #373a47 60%, transparent 60%, transparent 80%, #373a47 80%);
+    content: '';
+}
+
+.menu-button:hover {
+    opacity: 0.6;
+}
+
+/* 关闭列表按钮 */
+.close-button {
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    overflow: hidden;
+    text-indent: 1em;
+    font-size: 0.75em;
+    border: none;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+}
+
+.close-button::before,
+.close-button::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: #bdc3c7;
+}
+
+.close-button::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.close-button::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/* 显示列表 */
+.show-menu .menu-wrap {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: transform 0.8s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.show-menu .song-list,
+.show-menu .song-list a {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: transform 0.8s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.show-menu .song-list a {
+    -webkit-transition-duration: 0.9s;
+    transition-duration: 0.9s;
+}
+
+.show-menu .content::before {
+    opacity: 1;
+    -webkit-transition: opacity 0.8s;
+    transition: opacity 0.8s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+/*-------------------------- 设置菜单 --------------------------*/
+.setting-wrap {
+    position: absolute;
+    width: 18%;
+    height: 400px;
+    z-index: 1001;
+    background: rgba(55, 58, 71, .7);
+    padding: 0.5em 0 0;
+    font-size: 1.15em;
+    -webkit-transform: translate3d(1920px,0,0);
+    transform: translate3d(1920px,0,0);
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    float: right;
+    border-radius: 20px;
+    border: 2px double #ffffff;
+}
+/* 打开设置按钮 */
+.setting-button {
+    position: fixed;
+    z-index: 1000;
+    margin: 1em -3.5em;
+    padding: 0;
+    width: 2.5em;
+    font-size: 1em;
+    background: #000;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-text-stroke: 0.03em #000000;
+    font-weight: bold;
+}
+.setting-button:hover {
+    opacity: 0.6;
+}
+/* 关闭设置按钮 */
+.close-setting {
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    overflow: hidden;
+    text-indent: 1em;
+    font-size: 0.75em;
+    border: none;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+}
+
+.close-setting::before,
+.close-setting::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background-color: #fff;
+}
+
+.close-setting::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.close-setting::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/* 显示设置 */
+.show-setting .setting-wrap {
+    -webkit-transform: translate3d(1286px,0,0);   /* -webkit开头的样式能够在以webkit为内核的浏览器中正常使用（兼容性 */
+    -webkit-transition: -webkit-transform 0.8s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transform: translate3d(1500px,0,0);   /*添加一个过渡动画，将这个样式的宽度从0px变换为1500px*/
+    transition: transform 0.8s;    /*过渡的时间 0.8s */
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);  /*指定切换动画的速度*/
+}
+
+.show-setting,
+.show-setting a {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: transform 0.8s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.show-setting a {
+    -webkit-transition-duration: 0.9s;
+    transition-duration: 0.9s;
+}
+
+.show-setting .content::before {
+    opacity: 1;
+    -webkit-transition: opacity 0.8s;
+    transition: opacity 0.8s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}

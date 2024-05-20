@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.music.dao.DatabaseDao">
+
+    <update id="DropTable">
+        DROP TABLE IF EXISTS ${tableName}
+    </update>
+
+    <update id="CreateMusicTable">
+        CREATE TABLE music (
+                                 id varchar(7) NOT NULL,
+                                 musicName varchar(255) NOT NULL,
+                                 singer varchar(255) NOT NULL,
+                                 musicImg varchar(255) DEFAULT NULL,
+                                 duration varchar(255) DEFAULT NULL,
+                                 plays int(11) DEFAULT NULL,
+                                 musicFile varchar(255) DEFAULT NULL,
+                                 lyricFile varchar(255) DEFAULT NULL,
+                                 PRIMARY KEY (id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    </update>
+    <update id="CreateSingerTable">
+        CREATE TABLE singer (
+              id varchar(11) NOT NULL,
+              singerName varchar(255) NOT NULL,
+              singerImg varchar(255) DEFAULT NULL,
+              singerInfo varchar(255) DEFAULT NULL,
+              clout bigint(255) DEFAULT NULL,
+              PRIMARY KEY (id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    </update>
+    <update id="CreateSongListTable">
+        CREATE TABLE song_list (
+             sl_id int(6) NOT NULL,
+             sl_name varchar(255) NOT NULL,
+             sl_creatUser varchar(255) NOT NULL,
+             sl_creatTime date NOT NULL,
+             sl_plays int(255) NOT NULL,
+             PRIMARY KEY (sl_id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    </update>
+    <update id="CreateSongListSongTable">
+        CREATE TABLE song_list__song (
+           sl_m__id varchar(6) NOT NULL,
+           m_id varchar(7) NOT NULL,
+           sl_id int(6) NOT NULL,
+           addDate datetime NOT NULL,
+           PRIMARY KEY (sl_m__id),
+           KEY 歌单 (sl_id),
+           KEY 歌曲 (m_id),
+           CONSTRAINT 歌单 FOREIGN KEY (sl_id) REFERENCES song_list (sl_id),
+           CONSTRAINT 歌曲 FOREIGN KEY (m_id) REFERENCES music (id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    </update>
+    <update id="CreateUserTable">
+        CREATE TABLE user (
+            u_id int(6) NOT NULL,
+            name varchar(255) NOT NULL,
+            loginAcctNum varchar(255) NOT NULL,
+            loginPassword varchar(255) NOT NULL,
+            E_mail varchar(255) DEFAULT NULL,
+            head varchar(255) DEFAULT NULL,
+            info varchar(255) DEFAULT NULL,
+            sex varchar(255) DEFAULT NULL,
+            birthday date DEFAULT NULL,
+            address varchar(255) DEFAULT NULL,
+            PRIMARY KEY (u_id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    </update>
+    <update id="CreateUserSettingTable">
+        CREATE TABLE user_playsetting (
+            uid int(11) NOT NULL,
+            foreground1 varchar(255) DEFAULT NULL,
+            foreground2 varchar(255) DEFAULT NULL,
+            background1 varchar(255) DEFAULT NULL,
+            background2 varchar(255) DEFAULT NULL,
+            lyricBgAlpha float(255,2) DEFAULT NULL,
+            musicVolume int(3) DEFAULT NULL,
+            PRIMARY KEY (uid),
+            KEY uid (uid) USING BTREE,
+            CONSTRAINT user_musicsetting_ibfk_1 FOREIGN KEY (uid) REFERENCES user (u_id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    </update>
+
+    <insert id="Insert_Music" parameterType="com.music.entity.Music">
+        INSERT music VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.id}, #{item.musicName}, #{item.singer}, #{item.musicImg}, #{item.duration, jdbcType=VARCHAR}, #{item.plays}, #{item.musicFile}, #{item.lyricFile})
+        </foreach>
+    </insert>
+    <insert id="Insert_Singer" parameterType="com.music.entity.Singer">
+        INSERT singer VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.id}, #{item.singerName}, #{item.singerImg}, #{item.singerInfo}, #{item.clout})
+        </foreach>
+    </insert>
+    <insert id="Insert_SongList" parameterType="com.music.entity.SongList">
+        INSERT song_list VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.sl_id}, #{item.sl_name}, #{item.sl_creatUser}, #{item.sl_creatTime}, #{item.sl_plays})
+        </foreach>
+    </insert>
+    <insert id="Insert_Song_list_song" parameterType="com.music.entity.Song_list_song">
+        INSERT song_list__song VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.sl_m_id}, #{item.m_id}, #{item.sl_id}, #{item.addData})
+        </foreach>
+    </insert>
+    <insert id="Insert_User" parameterType="com.music.entity.User">
+        INSERT user VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.u_id}, #{item.name}, #{item.loginAcctNum}, #{item.loginPassword}, #{item.E_mail}, #{item.head}, #{item.info}, #{item.sex}, #{item.birthday}, #{item.address})
+        </foreach>
+    </insert>
+    <insert id="Insert_UserPlaySetting" parameterType="com.music.entity.UserPlaySetting">
+        INSERT user_playsetting VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.uid}, #{item.foreground1}, #{item.foreground2}, #{item.background1}, #{item.background2}, #{item.lyricBgAlpha}, #{item.musicVolume})
+        </foreach>
+    </insert>
+
+
+</mapper>

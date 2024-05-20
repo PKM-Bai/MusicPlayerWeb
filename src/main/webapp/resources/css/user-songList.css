@@ -1,0 +1,282 @@
+
+.user-contentBox{
+    height: 100%;
+    background: url("../image/pageBG/index-bg9.jpg");
+}
+
+.user-content {
+    width: 1200px;
+    min-height: 850px;
+    background: rgba(252, 252, 252, 0.89);
+    margin: 6px auto;
+    padding: 40px;
+}
+.user-content *{
+    color: #000000;
+}
+/*---------------左侧菜单--------------*/
+.sl-menu {
+    width: 260px;
+    float: left;
+    margin-left: 70px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.menu {
+    border-left: 1px solid #959494;
+}
+
+.menu:last-child {
+    border-bottom: 1px solid #959494;
+}
+
+.menu summary {
+    height: 40px;
+    line-height: 40px;
+    text-indent: 10px;
+    outline: 0;
+    font-size: 14px;
+    font-weight: 700;
+    border-top: 1px solid #959494;
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FEFEFE), color-stop(1, #CCC));*/
+    cursor: pointer
+}
+.menu summary h3 {
+    padding: 0 10px 12px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+}
+
+.menu summary::-webkit-details-marker {
+    display: none
+}
+
+.menu summary:before {
+    content: "+";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    float: left;
+}
+
+.menu[open] summary:before {
+    content: "-"
+}
+
+.songLists {
+    padding: 10px 0;
+}
+.songLists li {
+    list-style: none;
+    text-indent: 25px;
+    font-size: 12px;
+    height: 60px;
+    line-height: 30px
+}
+.songLists li a {
+    display: block;
+    color: #666
+}
+.songLists li a:hover {
+    background: rgba(197, 190, 190, 0.3);
+}
+.songLists li img {
+    margin-top: 5px;
+    width: 50px;
+    height: 50px;
+}
+.select {
+    background: #bdbdbd;
+}
+.over-hien {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.addsl-button {
+    width: 52px;
+    display: inline-block;
+    background-position: 0 -96px;
+}
+.addsl-button:hover {
+    text-decoration: underline;
+}
+/*-------------右侧内容显示区-----------*/
+.sl-content {
+    height: 100%;
+    float: right;
+    width: 740px;
+    padding-bottom: 50px;
+    margin-right: 50px;
+    border: 1px solid #959494;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+/*歌单信息*/
+.sl-info {
+    padding: 30px;
+}
+.slImg {
+    float: left;
+    position: relative;
+    display: inline;
+    margin: 0 -220px 0 0;
+    width: 200px;
+    height: 200px;
+}
+.slImg img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.sl-infoDiv {
+    width: 100%;
+    float: right;
+}
+.slName {
+    margin: 0 0 12px;
+    line-height: 24px;
+}
+.slName img {
+    height: 30px;
+    width: auto;
+    margin-right: 6px;
+}
+.slInfo {
+    margin: 0 0 20px;
+    line-height: 35px;
+    font-size: 13px;
+}
+.slInfo img{
+    float: left;
+    width: 35px;
+    height: 35px;
+}
+.slFunc {
+    font-size: 14px;
+    height: 70px;
+    line-height: 20px;
+}
+.slFunc a {
+    display: block;
+    float: left;
+}
+.slFunc #play-btn {
+    padding: 4px 25px;
+}
+.slFunc a.slFunc-btn {
+    /*padding: 12px;*/
+    color: #000000;
+}
+
+/***********歌曲列表 标题***********/
+.sl-title {
+    height: 32px;
+    padding: 0 10px 0 32px;
+    border-bottom: 2px solid #28aeff;
+}
+.sl-title h3 {
+    font-size: 20px;
+    float: left;
+}
+.song-num {
+    float: left;
+    font-size: 12px;
+    margin: 9px 0 0 20px;
+}
+.sl-plays {
+    margin-top: 5px;
+    float: right;
+    font-size: 14px;
+}
+.sl-plays strong {
+    color: #c20c0c;
+}
+/************** 列表单 **************/
+table,table tr th, table tr td {
+    /*border-top: 1px solid #b9b9b9;*/
+    border-right: 1px solid #b9b9b9;
+    border-bottom: 1px solid #b9b9b9;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+.m-table {
+    width: 100%;
+    border-collapse: collapse;
+    padding:2px;
+    font-size: 12px;
+}
+.m-table th {
+    height: 34px;
+    background-color: #f7f7f7;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    vertical-align: top;
+    text-align: left;
+    font-weight: normal;
+    color: #666;
+}
+.m-table th.bj {
+    width: 70px;
+    text-align: center;
+}
+.m-table td {
+    padding: 3px 10px;
+    line-height: 22px;
+    text-align: left;
+}
+.w1 {
+    width: 74px;
+}
+.m-table th .wp {
+    height: 18px;
+    line-height: 18px;
+    padding: 8px 10px;
+    background-position: 0 -56px;
+}
+.ply {
+    height: 18px;
+}
+.ply img {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+.ply .num {
+    width: 25px;
+    margin-left: 5px;
+    color: #999999;
+}
+.tt {
+    float: left;
+    width: 100%;
+    height: 22px;
+    margin-right: 20px;
+}
+.tt a:hover {
+    text-decoration: underline; /*a标签下划线*/
+    color: #333;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+.edit a {
+    display: block;
+    float: left;
+    padding: 0 2px;
+}
+
+
+
+
+
+

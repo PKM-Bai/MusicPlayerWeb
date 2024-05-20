@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.music.dao.UserPlaySettingDao">
+    <select id="GetPlaySettingByUid" resultType="com.music.entity.UserPlaySetting">
+        select * from user_playSetting where uid = #{uid};
+    </select>
+
+    <insert id="CreatPlaySetting" parameterType="com.music.entity.UserPlaySetting">
+        insert user_playSetting values (#{uid}, #{foreground1}, #{foreground2}, #{background1}, #{background2}, #{lyricBgAlpha}, #{musicVolume});
+    </insert>
+
+    <update id="SetPlaySetting" parameterType="com.music.entity.UserPlaySetting">
+        update user_playSetting set foreground1=#{foreground1}, foreground2=#{foreground2}, background1=#{background1}, background2=#{background2}, lyricBgAlpha=#{lyricBgAlpha}, musicVolume=#{musicVolume} where uid=#{uid};
+    </update>
+
+</mapper>

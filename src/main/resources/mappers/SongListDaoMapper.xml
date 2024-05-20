@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.music.dao.SongListDao">
+    <select id="findSongListByID" resultType="com.music.entity.SongList">
+        select * from song_list where sl_id = #{sl_id};
+    </select>
+
+    <select id="findMusicBySongListID" resultType="com.music.entity.Music">
+        select music.* from song_list__song
+             LEFT JOIN song_list on song_list__song.sl_id = song_list.sl_id
+             LEFT JOIN music on song_list__song.m_id = music.id
+        where song_list__song.sl_id = #{sl_id} order by addDate desc;
+    </select>
+
+    <select id="findUserBySongListID" resultType="com.music.entity.User">
+        select user.* from user
+             LEFT JOIN song_list on  song_list.sl_creatUser = user.u_id
+        where song_list.sl_id = #{sl_id};
+    </select>
+
+    <delete id="removeMusic">
+        delete from song_list__song where m_id = #{m_id} and sl_id = #{sl_id};
+    </delete>
+
+    <insert id="addMusic" parameterType="com.music.entity.Song_list_song">
+        insert song_list__song values (#{sl_m_id},#{m_id},#{sl_id},#{addData})
+    </insert>
+
+
+</mapper>

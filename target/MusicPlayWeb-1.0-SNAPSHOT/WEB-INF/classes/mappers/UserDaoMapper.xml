@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.music.dao.UserDao">
+    <select id="login" resultType="com.music.entity.User">
+        select * from user where loginAcctNum = #{loginAcctNum} and loginPassword = #{loginPassword};
+    </select>
+
+    <select id="findByUserId" resultType="com.music.entity.User">
+        select * from user where u_id = #{uid}
+    </select>
+
+    <update id="updateUserInfo" parameterType="com.music.entity.User">
+        update user set name=#{name}, head=#{head}, sex=#{sex} where u_id=#{u_id}
+    </update>
+
+    <select id="findCreatSongList" resultType="com.music.entity.SongList" >
+        select * from song_list where sl_creatUser = #{uid}
+    </select>
+
+</mapper>
