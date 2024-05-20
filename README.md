@@ -48,7 +48,7 @@
 
 
 
-启动Tomcat成功后，浏览器访问http://localhost:8080/MusicPlayWeb/ 。初次启动后页面应该是这样的。
+启动Tomcat成功后，浏览器访问http://localhost:8080/MusicPlayerWeb/ 。初次启动后页面应该是这样的。
 
 ![image-20230528161320938](https://github.com/PKM-Bai/MusicPlayerWeb/assets/95196320/b0ee2c42-7fc3-4d96-b182-86e1673bc5e6)
 
@@ -64,4 +64,4 @@
 
 ## 注意事项
 
-还有很多功能没有完善，或者说不智能，等之后时间长了再修改。比如所有的资源都是已本地化静态资源方式读取的，需要更换的头像、歌曲、歌词、背景图片等等，都要放在"MusicPlayWeb\src\main\webapp\resources\"目录下，存放好之后再重新启动Tomcat部署才有效果。
+还有很多功能没有完善，或者说不智能，等之后时间长了再修改。比如所有的资源都是已本地化静态资源方式读取的，需要更换的头像、歌曲、歌词、背景图片等等，都要放在"MusicPlayerWeb\src\main\webapp\resources\"目录下，存放好之后再重新启动Tomcat部署才有效果。
