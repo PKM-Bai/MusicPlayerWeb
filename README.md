@@ -7,6 +7,10 @@
 2.Tomcat 9.0.37版本（最好8.0以上）
 
 
+### 预览
+
+<video src="./项目预览.mp4" controls="controls" width="1200" height="600"></video>
+
 
 ### 项目本地化配置
 
