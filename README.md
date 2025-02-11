@@ -9,7 +9,12 @@
 
 ### 预览
 
-<video src="./项目预览.mp4" controls="controls" width="1200" height="600"></video>
+
+https://github.com/user-attachments/assets/b896962b-33ae-46a4-9760-e2acd862aaad
+
+https://github.com/user-attachments/assets/520249eb-c9be-46c9-a7fa-3e2735e4f6fd
+
+https://github.com/user-attachments/assets/e07f4329-9b5d-4371-9048-25248796c04e
 
 
 ### 项目本地化配置
